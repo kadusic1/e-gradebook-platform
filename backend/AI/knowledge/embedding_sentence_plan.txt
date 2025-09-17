@@ -1,0 +1,253 @@
+"""
+Tenant embedding plan
+permission_level: root
+db_location: workspace
+
+Metadata
+{
+"vrsta": "Opšte informacije o instituciji",
+"ime": "Edhem Mulabdić",
+"grad": "Zenica",
+"tip": "Osnovna škola",
+"kanton": "Zeničko-dobojski",
+"telefon": "032/123-456",
+"email": "skola@skola.ba",
+"direktor": "Test Direktor",
+"longitude": "18.123456",
+"latitude": "44.123456",
+"domena": "skola.ba",
+"specijalizacija": "obična",
+"težina": "Srednja",
+# Opcije za težinu su:
+# "Vrlo lagana" (4.50 - 5.00),
+# "Lagana" (3.50 - 4.49),
+# "Srednja" (2.50 - 3.49),
+# "Teška" (2.00 - 2.49),
+}
+
+Sentence template that we will embed:
+"Institucija ___ se nalazi u gradu ___,
+tip institucije: ___, u kantonu ___.
+Direktor institucije ___ je ___.
+Kontakt institucije ___, telefon: ___,
+email: ___.
+Web domena institucije ___: ___.
+Specijalizacija institucije ___: ___.
+Geografska širina institucije ___: ___,
+geografska dužina institucije ___: ___.
+Težina institucije ___ je ___."
+
+Example:
+"Institucija Edhem Mulabdić se nalazi u gradu Zenica,
+tip institucije: Osnovna škola, u kantonu Zeničko-dobojski.
+Direktor institucije Edhem Mulabdić je Test Direktor.
+Kontakt institucije Edhem Mulabdić, telefon: 032/123-456,
+email: skola@skola.ba.
+Web domena institucije Edhem Mulabdić: skola.ba.
+Specijalizacija institucije Edhem Mulabdić: obična.
+Geografska širina institucije Edhem Mulabdić: 44.123456,
+geografska dužina institucije Edhem Mulabdić: 18.123456.
+Težina institucije Edhem Mulabdić je Srednja."
+"""
+
+"""
+Section embedding plan
+permission_level: teacher
+db_location: tenant
+
+Metadata
+{
+"vrsta": "Opšte informacije o odjeljenju",
+"ime": "I-1",
+"institucija": "Edhem Mulabdić",
+"godina": "2023/2024",
+"naziv_kurikuluma": "Kurikulum za I razred osnovne škole Bosanski jezik",
+"uspjeh": "Dobar",
+# Odličan (4.50 - 5.00),
+# Vrlo dobar (4.00 - 4.49),
+# Dobar (3.00 - 3.99),
+# Dovoljan (2.00 - 2.99),
+# Nedovoljan (1.00 - 1.99),
+}
+
+Sentence template that we will embed:
+"Odjeljenje ___ institucije ___ u školskoj godini ___, koristi kurikulum: ___. 
+Uspjeh odjeljenja ___ je ___."
+
+Example:
+"Odjeljenje I-1 institucije Edhem Mulabdić u školskoj godini 2023/2024,
+koristi kurikulum: Kurikulum za I razred osnovne škole Bosanski jezik. 
+Uspjeh odjeljenja I-1 je Dobar."
+"""
+
+"""
+Pupil embedding plan
+permission_level: pupil
+db_location: tenant
+
+Metadata
+{
+"vrsta": "Opšte informacije o učeniku",
+"ime": "Test",
+"prezime": "Testovic",
+"spol": "Muško",
+"adresa": "Test adresa 123",
+"staratelj": "Test Staratelj",
+"email": "ucenik@test.ba",
+"telefon": "032/123-456",
+"telefon_staratelja": "032/654-321",
+"datum_rodjenja": "2010-01-01",
+"mjesto_rodjenja": "Zenica",
+"vjeroispovijest": "Islamska",
+"uspjeh": "Dobar",
+# Opcije za uspjeh su:
+# Odličan (4.50 - 5.00),
+# Vrlo dobar (4.00 - 4.49),
+# Dobar (3.00 - 3.99),
+# Dovoljan (2.00 - 2.99),
+# Nedovoljan (1.00 - 1.99),
+# Opcije za ponašanje su: "Primjerno", "Vrlo dobro", "Dobro", "Zadovoljavajuće", "Loše"
+odjeljenja: [
+        {
+            "kod": "I-1",
+            "institucija": "Edhem Mulabdić",
+            "smjer": "Računarska tehnika i automatika"
+            "ponašanje": "Primjereno"
+        }, ...
+        # može biti više odjeljenja
+        # Smjer prikazati samo ako je srednja škola u suprotnom izostaviti polje
+    ]
+}
+
+Sentence template that we will embed:
+"Učenik ___, ___ spola, rođen na datum ___ u ___,
+živi na adresi ___.
+Staratelj učenika ___ je ___, kontakt telefon: ___.
+Učenik ___ ima telefon: ___ i email: ___.
+Vjeroispovijest učenika ___ je ___.
+Uspjeh učenika ___ je ___.
+
+Example:
+"Učenik Test Testovic, muškog spola, rođen 2010-01-01 u Zenici,
+živi na adresi Test adresa 123.
+Staratelj učenika Test Testovic je Test Staratelj, kontakt: 032/654-321.
+Učenik Test Testovic ima telefon: 032/123-456 i email: ucenik@test.ba.
+Vjeroispovijest učenika Test Testovic je Islamska.
+Uspjeh učenika Test Testovic je Dobar.
+"""
+
+"""
+Teacher embedding plan
+permission_level: teacher
+db_location: workspace
+
+Metadata
+{
+"vrsta": "Opšte informacije o Nastavniku/Profesoru",
+"ime": "Nastavnik",
+"prezime": "Nastavnikovic",
+"telefon": "060/123-456",
+"email": "Test adresa nastavnika",
+"oslovljavanje: "Gdin.",
+"titula: "Prof.dr.",
+"kriterij": "Lagan",
+# Opcije za kriterij su:
+# "Vrlo lagan" (4.50 - 5.00),
+# "Lagan" (3.50 - 4.49),
+# "Srednji" (2.50 - 3.49),
+# "Težak" (2.00 - 2.49),
+odjeljenja: [
+        {
+            "kod": "I-1",
+            "institucija": "Edhem Mulabdić",
+            "smjer": "Računarska tehnika i automatika"
+        }, ...
+        # može biti više odjeljenja
+        # Smjer prikazati samo ako je srednja škola u suprotnom izostaviti polje
+    ]
+}
+
+Sentence template that we will embed:
+"Nastavnik ___ ___, titula ___, oslovljavanje ___, kontakt telefon: ___, email: ___.
+Kriterij nastavnika ___ je ___. Nastavnik ___ predaje u odjeljenjima: ___."
+
+Example:
+"Nastavnik Nastavnik Nastavnikovic, titula Prof.dr., oslovljavanje Gdin.,
+kontakt telefon: 060/123-456, email: nastavnik@test.ba.
+Kriterij nastavnika Nastavnik Nastavnikovic je Lagan.
+Nastavnik Nastavnik Nastavnikovic predaje u odjeljenjima: I-1 institucije
+Edhem Mulabdić smjera Računarska tehnika i automatika,
+II-2 institucije Edhem Mulabdić smjera Računarska tehnika i automatika."
+"""
+
+"""
+Grade embedding plan
+permission_level: pupil
+db_location: tenant
+
+Metadata
+{
+"vrsta": "Ocjene učenika za određeni predmet u određenom odjeljenju",
+"institucija": "Edhem Mulabdić",
+"odjeljenje": "I-B",
+"smjer": "Računarska tehnika i automatika",  # samo za srednju školu, može biti None
+"ime_ucenika": "Ucenik",
+"prezime_ucenik": "Ucenikovic",
+"predmet": "Matematika",
+"ocjene": [5, 4, 3, 5, 4]
+}
+
+Sentence template that we will embed:
+"Ocjene učenika ___ ___ iz odjeljenja ___ institucije ___ smjera ___
+za predmet ___ su: ___."
+
+Example:
+"Ocjene učenika Ucenik Ucenikovic iz odjeljenja I-B institucije Edhem Mulabdić
+smjera Računarska tehnika i automatika za predmet Matematika su: 5, 4, 3, 5, 4."
+
+Note: If the school is not a high school, the sentence template and example
+should be:
+
+Template:
+"Ocjene učenika ___ ___ iz odjeljenja ___ institucije ___
+za predmet ___ su: ___."
+
+Example:
+"Ocjene učenika Ucenik Ucenikovic iz odjeljenja I-B institucije Edhem Mulabdić
+za predmet Matematika su: 5, 4, 3, 5, 4."
+"""
+
+"""
+Behaviour embedding plan
+permission_level: pupil
+db_location: tenant
+
+Metadata
+{
+"vrsta": "Vladanje učenika u određenom odjeljenju",
+"institucija": "Edhem Mulabdić",
+"odjeljenje": "I-B",
+"smjer": "Računarska tehnika i automatika",  # samo za srednju školu, može biti None
+"ime_ucenika": "Ucenik",
+"prezime_ucenik": "Ucenikovic",
+"vladanje": "Primjereno"
+}
+
+Sentence template that we will embed:
+"Vladanje učenika ___ ___ iz odjeljenja ___ institucije ___{smjer}
+___ je: ___."
+
+Example:
+"Vladanje učenika Ucenik Ucenikovic iz odjeljenja I-B institucije Edhem Mulabdić
+smjera Računarska tehnika i automatika je: Primjereno."
+
+Note: If the school is not a high school, the sentence template and example
+should be:
+
+Template:
+"Vladanje učenika ___ ___ iz odjeljenja ___ institucije ___ je: ___."
+
+Example:
+"Vladanje učenika Ucenik Ucenikovic iz odjeljenja I-B institucije
+Edhem Mulabdić je: Primjereno."
+"""

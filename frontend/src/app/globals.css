@@ -1,0 +1,147 @@
+/* Background colors */
+@source inline("bg-indigo-{500,600}");
+@source inline("bg-teal-{500,600}");
+@source inline("bg-rose-{500,600}");
+@source inline("bg-amber-{500,600,700}");
+@source inline("bg-blue-{500,600}");
+@source inline("bg-emerald-{500,600}");
+@source inline("bg-slate-{500,600,700,800,900}");
+@source inline("bg-gray-{500,600}");
+@source inline("bg-stone-{500,600}");
+@source inline("bg-sky-{500,600}");
+@source inline("bg-violet-{500,600}");
+@source inline("bg-cyan-{500,600}");
+@source inline("bg-zinc-{500,600}");
+@source inline("bg-neutral-{500,600,700}");
+@source inline("bg-white");
+
+/* Hover background colors */
+@source inline("hover:bg-indigo-{600}");
+@source inline("hover:bg-teal-{600}");
+@source inline("hover:bg-rose-{600}");
+@source inline("hover:bg-amber-{600,700}");
+@source inline("hover:bg-blue-{600}");
+@source inline("hover:bg-emerald-{600}");
+@source inline("hover:bg-slate-{600,700,800,900}");
+@source inline("hover:bg-gray-{600}");
+@source inline("hover:bg-stone-{600}");
+@source inline("hover:bg-sky-{600}");
+@source inline("hover:bg-violet-{600}");
+@source inline("hover:bg-cyan-{600}");
+@source inline("hover:bg-zinc-{600}");
+@source inline("hover:bg-neutral-{600}");
+
+/* Focus background colors */
+@source inline("focus:bg-indigo-{600}");
+@source inline("focus:bg-teal-{600}");
+@source inline("focus:bg-rose-{600}");
+@source inline("focus:bg-amber-{600,700}");
+@source inline("focus:bg-blue-{600}");
+@source inline("focus:bg-emerald-{600}");
+@source inline("focus:bg-slate-{600,700,800,900}");
+@source inline("focus:bg-gray-{600}");
+@source inline("focus:bg-stone-{600}");
+@source inline("focus:bg-sky-{600}");
+@source inline("focus:bg-violet-{600}");
+@source inline("focus:bg-cyan-{600}");
+@source inline("focus:bg-zinc-{600}");
+@source inline("focus:bg-neutral-{600,700}");
+
+/* Text colors */
+@source inline("text-indigo-{500,600}");
+@source inline("text-teal-{500,600}");
+@source inline("text-rose-{500,600}");
+@source inline("text-amber-{500,600,700}");
+@source inline("text-blue-{500,600}");
+@source inline("text-emerald-{500,600}");
+@source inline("text-slate-{500,600,700,800,900}");
+@source inline("text-gray-{500,600}");
+@source inline("text-stone-{500,600}");
+@source inline("text-sky-{500,600}");
+@source inline("text-violet-{500,600}");
+@source inline("text-cyan-{500,600}");
+@source inline("text-zinc-{500,600}");
+@source inline("text-neutral-{500,600,700}");
+@source inline("text-white");
+
+/* Hover text colors */
+@source inline("hover:text-indigo-{600}");
+@source inline("hover:text-teal-{600}");
+@source inline("hover:text-rose-{600}");
+@source inline("hover:text-amber-{600,700}");
+@source inline("hover:text-blue-{600}");
+@source inline("hover:text-emerald-{600}");
+@source inline("hover:text-slate-{600,700,800,900}");
+@source inline("hover:text-gray-{600}");
+@source inline("hover:text-stone-{600}");
+@source inline("hover:text-sky-{600}");
+@source inline("hover:text-violet-{600}");
+@source inline("hover:text-cyan-{600}");
+@source inline("hover:text-zinc-{600}");
+@source inline("hover:text-neutral-{600,700}");
+
+/* Focus text colors */
+@source inline("focus:text-indigo-{600}");
+@source inline("focus:text-teal-{600}");
+@source inline("focus:text-rose-{600}");
+@source inline("focus:text-amber-{600,700}");
+@source inline("focus:text-blue-{600}");
+@source inline("focus:text-emerald-{600}");
+@source inline("focus:text-slate-{600,700,800,900}");
+@source inline("focus:text-gray-{600}");
+@source inline("focus:text-stone-{600}");
+@source inline("focus:text-sky-{600}");
+@source inline("focus:text-violet-{600}");
+@source inline("focus:text-cyan-{600}");
+@source inline("focus:text-zinc-{600}");
+@source inline("focus:text-neutral-{600,700}");
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --accent: #6366f1; /* Indigo-500 */
+  --muted: #9ca3af; /* Gray-400 */
+  --border: #e5e7eb; /* Gray-200 */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.new-page {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: white;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 8px #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}

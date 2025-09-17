@@ -1,0 +1,9 @@
+/* Main content area background and shadow for all pages */
+.main-content-bg {
+  background: var(--color-gray-50, #f9fafb);
+  box-shadow:
+    0 4px 24px 0 rgba(0, 0, 0, 0.07),
+    0 1.5px 4px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 1.25rem;
+  /* Responsive padding for main already exists via p-8 */
+}
